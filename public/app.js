@@ -246,3 +246,5 @@ $("list").addEventListener("click", async (e) => {
 });
 
 renderRows();
+window.JQ = { jobs: () => jobs, totals: totals, biz: () => (profile && profile.business_name) || "" };
+
