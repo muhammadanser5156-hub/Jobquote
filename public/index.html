@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JobQuote – Quotes & invoices for contractors</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <section id="auth" class="card hidden">
+    <h1>Job<span>Quote</span></h1>
+    <p class="tag">Quote it. Send it. Get paid. 14-day free trial, no card needed.</p>
+    <div class="tabs">
+      <button class="chip" id="tabIn" type="button">Sign in</button>
+      <button class="chip" id="tabUp" type="button">Create account</button>
+    </div>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="email">
+    <label for="pass">Password (8+ characters)</label>
+    <input id="pass" type="password" autocomplete="current-password">
+    <button class="primary" id="authGo" type="button">Sign in</button>
+    <div id="msg" role="status"></div>
+  </section>
+
+  <div id="app" class="hidden">
+    <header>
+      <div>
+        <h1>Job<span>Quote</span></h1>
+        <div class="tag" id="who"></div>
+      </div>
+      <div class="hdr-actions">
+        <button class="ghost" id="billBtn" type="button">Billing</button>
+        <button class="ghost" id="outBtn" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <div id="banner" class="banner hidden"></div>
+
+    <section class="stats" aria-label="Summary">
+      <div class="stat"><b id="sOut">$0</b><small>Waiting to be paid</small></div>
+      <div class="stat"><b id="sPaid">$0</b><small>Paid this month</small></div>
+      <div class="stat"><b id="sOpen">0</b><small>Open quotes</small></div>
+    </section>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="newq">
+        <h2 id="newq">New quote</h2>
+        <label for="biz">Your business name</label>
+        <input id="biz" placeholder="Smith Heating & Air">
+        <label for="cust">Customer name</label>
+        <input id="cust" placeholder="Maria Lopez">
+        <label for="phone">Customer phone (optional)</label>
+        <input id="phone" inputmode="tel" placeholder="555-0142">
+        <label for="job">Job description</label>
+        <input id="job" placeholder="Replace water heater">
+
+        <div class="head">Line items</div>
+        <div class="presets" id="presets"></div>
+        <div id="items"></div>
+        <button class="chip" id="addRow" type="button">+ Add line</button>
+
+        <label for="tax">Sales tax %</label>
+        <input id="tax" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+
+        <div class="totals">
+          <div><span>Subtotal</span><span id="tSub">$0.00</span></div>
+          <div><span>Tax</span><span id="tTax">$0.00</span></div>
+          <div class="grand"><span>Total</span><span id="tTot">$0.00</span></div>
+        </div>
+        <button class="primary" id="save" type="button">Save quote</button>
+      </section>
+
+      <section aria-labelledby="jobs">
+        <h2 id="jobs">Jobs</h2>
+        <div class="filters" id="filters"></div>
+        <div id="list"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="printArea"></div>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="/config.js"></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
